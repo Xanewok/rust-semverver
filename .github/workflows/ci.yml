@@ -35,3 +35,13 @@ jobs:
 
       - name: Run tests
         run: sh ci/run.sh ${{ matrix.os }}
+
+  # https://forge.rust-lang.org/infra/docs/bors.html#adding-a-new-repository-to-bors
+  build_result:
+    name: bors build finished
+    runs-on: ubuntu-latest
+    needs: ["build_and_test"]
+    steps:
+      - echo ${{ success() }}
+      - name: Mark the job as successful
+        run: "[ ${{ success() }} = true ] && exit 0 || exit 1"
