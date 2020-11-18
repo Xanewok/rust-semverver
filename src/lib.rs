@@ -5,7 +5,7 @@
 // Needs a nightly feature, doesn't bring that much to the table
 // FIXME: Apply Clippy lint once or-patterns are stabilized (rust-lang/rust#54883)
 #![allow(clippy::unnested_or_patterns)]
-#![deny(warnings)]
+// #![deny(warnings)]
 
 extern crate rustc_hir;
 extern crate rustc_infer;
